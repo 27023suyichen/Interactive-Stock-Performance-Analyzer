@@ -101,7 +101,7 @@ def download_stock_data(tickers, start_date, end_date):
             st.warning("Downloaded data is empty. You might be rate-limited.Please try again later.")
         return data
     except Exception as e:
-        st.error(f"Error downloading data: {str(e)}")
+        st.warning(f"Live data unavailable: {str(e)[:80]}... Using offline backup.")
         return None
 
 
