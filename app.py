@@ -567,14 +567,16 @@ def main():
         st.subheader("Analysis Summary")
         
         # Best and worst performers
-        if len(selected_stocks) > 0 and not stats_df.empty:
-            best_return = stats_df['Total Return (%)'].idxmax()
-            worst_return = stats_df['Total Return (%)'].idxmin()
-            
-            safest = risk_df['Annual Volatility (%)'].idxmin()
-            riskiest = risk_df['Annual Volatility (%)'].idxmax()
-            
-            best_sharpe = risk_df['Sharpe Ratio'].idxmax()
+       if (len(selected_stocks) > 0 
+           and not stats_df.empty 
+           and not risk_df.empty
+           and stats_df['Total Return (%)'].notna().any()
+           and risk_df['Annual Volatility (%)'].notna().any()):
+           best_return = stats_df['Total Return (%)'].idxmax()
+           worst_return = stats_df['Total Return (%)'].idxmin()
+           safest = risk_df['Annual Volatility (%)'].idxmin()
+           riskiest = risk_df['Annual Volatility (%)'].idxmax()
+           best_sharpe = risk_df['Sharpe Ratio'].idxmax()
             
             col1, col2 = st.columns(2)
             
