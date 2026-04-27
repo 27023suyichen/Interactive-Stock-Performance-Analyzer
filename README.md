@@ -34,6 +34,7 @@ This project is an interactive stock performance analysis tool designed for indi
 ```text
 acc102-stock-analyzer/
 ├── README.md                # Project documentation
+├── LICENSE                  # Project license
 ├── requirements.txt         # Python dependencies
 ├── app.py                   # Streamlit web application
 ├── notebook.ipynb           # Jupyter Notebook analysis
